@@ -1,0 +1,46 @@
+.color-select {
+    display: flex;
+}
+
+.color-item {
+    display: flex;
+    margin-right: 20px;
+}
+
+.color-item div {
+    height: 30px;
+    margin: 10px 0;
+    width: 30px;
+}
+
+.c01 {
+    background-color: #cebf94;
+}
+
+.c02 {
+    background-color: #63823f;
+}
+
+.c03 {
+    background-color: #5d5f3a;
+}
+
+.c04 {
+    background-color: #3e4428;
+}
+
+.c11 {
+    background-color: #cccccc;
+}
+
+.c12 {
+    background-color: #878787;
+}
+
+.c13 {
+    background-color: #4f4a51;
+}
+
+.c14 {
+    background-color: #303030;
+}

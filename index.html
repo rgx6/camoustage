@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>すた迷彩ジェネレータ</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <h1>すた迷彩ジェネレータ</h1>
+    <div class="color-select">
+        <div class="color-item">
+            <input type="radio" name="color" value="0" checked>
+            <div class="c01"></div>
+            <div class="c02"></div>
+            <div class="c03"></div>
+            <div class="c04"></div>
+        </div>
+        <div class="color-item">
+            <input type="radio" name="color" value="1">
+            <div class="c11"></div>
+            <div class="c12"></div>
+            <div class="c13"></div>
+            <div class="c14"></div>
+        </div>
+    </div>
+    <div>
+        <label>数</label>
+        <input type="number" id="number" value="5000" step="10" min="1" />
+        <label>大きさ</label>
+        <input type="number" id="scale" value="1.0" step="0.1" min="0.1" />
+        <button id="generate">生成</button>
+    </div>
+    <p>画像は右クリックのメニューから保存できます</p>
+    <canvas id="canvas" height="1080" width="1920"></canvas>
+</body>
+
+</html>
