@@ -1,41 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>すた迷彩ジェネレータ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script src="index.js" defer></script>
 </head>
 
 <body>
-    <h1>すた迷彩ジェネレータ</h1>
-    <div class="color-select">
-        <div class="color-item">
-            <input type="radio" name="color" value="0" checked>
-            <div class="c01"></div>
-            <div class="c02"></div>
-            <div class="c03"></div>
-            <div class="c04"></div>
-        </div>
-        <div class="color-item">
-            <input type="radio" name="color" value="1">
-            <div class="c11"></div>
-            <div class="c12"></div>
-            <div class="c13"></div>
-            <div class="c14"></div>
-        </div>
+    <div id="content" class="container-fluid">
+        <h1>すた迷彩ジェネレータ</h1>
+        <form>
+            <div class="form-check form-check-inline">
+                <input type="radio" name="color" id="color0" class="form-check-input" value="0" v-model.number="colorIndex">
+                <div class="color-item">
+                    <div class="c01"></div>
+                    <div class="c02"></div>
+                    <div class="c03"></div>
+                    <div class="c04"></div>
+                </div>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" name="color" id="color1" class="form-check-input" value="1" v-model.number="colorIndex">
+                <div class="color-item" for="color1">
+                    <div class="c11"></div>
+                    <div class="c12"></div>
+                    <div class="c13"></div>
+                    <div class="c14"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>画像の幅</label>
+                <input type="number" class="form-control" step="1" min="1" v-model.number="canvasWidth" />
+            </div>
+            <div class="form-group">
+                <label>画像の高さ</label>
+                <input type="number" class="form-control" step="1" min="1" v-model.number="canvasHeight" />
+            </div>
+            <div class="form-group">
+                <label>すたちゅーの数</label>
+                <input type="number" class="form-control" step="1" min="1" v-model.number="staNumber" />
+            </div>
+            <div class="form-group">
+                <label>すたちゅーの大きさ</label>
+                <input type="number" class="form-control" step="0.1" min="0.1" v-model.number="staScale" />
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" @click="generate">生成</button>
+                <label>画像は右クリックのメニューから保存できます</label>
+            </div>
+            <canvas id="canvas" :height="canvasHeight" :width="canvasWidth"></canvas>
+        </form>
     </div>
-    <div>
-        <label>数</label>
-        <input type="number" id="number" value="5000" step="10" min="1" />
-        <label>大きさ</label>
-        <input type="number" id="scale" value="1.0" step="0.1" min="0.1" />
-        <button id="generate">生成</button>
-    </div>
-    <p>画像は右クリックのメニューから保存できます</p>
-    <canvas id="canvas" height="1080" width="1920"></canvas>
 </body>
 
 </html>
